@@ -15,6 +15,7 @@
 \RequirePackage{amssymb} % Uključeno jer je često korišteno
 \RequirePackage{amsmath} % Uključeno jer je često korišteno
 \RequirePackage{caption}
+\RequirePackage{mfirstuc}
 \RequirePackage{ifthen}
 \RequirePackage{url} % Potrebno radi natbiba
 \RequirePackage{enumitem} % Potrebno radi izmjene itemize okoline
@@ -115,6 +116,27 @@ unicode
 \end{spacing}
 }
 
+\def\musko{M}
+\def\zensko{Z}
+
+\newcommand{\autor}[1]
+{
+  \ifthenelse{\equal{#1}{M}}{Autor}{}
+  \ifthenelse{\equal{#1}{Z}}{Autorica}{}
+}
+
+\newcommand{\mentorr}[1]
+{
+  \ifthenelse{\equal{#1}{M}}{Mentor}{}
+  \ifthenelse{\equal{#1}{Z}}{Mentorica}{}
+}
+
+\newcommand{\potvrdio}[1]
+{
+  \ifthenelse{\equal{#1}{M}}{potvrdio}{}
+  \ifthenelse{\equal{#1}{Z}}{potvrdila}{}
+}
+
 % Podešavanje poglavlja tako da se ne ispisuje "Poglavlje <broj>"
 \newboolean{prvi}
 \setboolean{prvi}{false}
@@ -179,9 +201,11 @@ unicode
 \def\titulaProfesora#1{\gdef\@titulaProfesora{#1}}
 \def\sazetak#1{\gdef\@sazetak{#1}}
 \def\kljucneRijeci#1{\gdef\@kljucneRijeci{#1}}
+\def\spolStudenta#1{\gdef\@spolStudenta{#1}}
+\def\spolMentora#1{\gdef\@spolMentora{#1}}
 
-\def\zavrsni{ZAVR\v SNI RAD}
-\def\diplomski{DIPLOMSKI RAD}
+\def\zavrsni{završni rad}
+\def\diplomski{diplomski rad}
 
 % Naslovne stranice
 \renewcommand\maketitle{%
@@ -201,7 +225,7 @@ unicode
 \vskip 60mm
 \begin{center}
 { \linespread{2.5}\sffamily\bfseries{\fontsize{22}{27}\selectfont\MakeUppercase\@title}\par}\ \\[10mm]
-{\normalfont \large \bfseries{ZAVR\v SNI RAD}}
+{\normalfont \large \bfseries{\MakeUppercase\@vrstaRada}}
 \end{center}
 
 \vfill
@@ -228,14 +252,14 @@ unicode
 \vskip 40mm
 \begin{center}
 {\setstretch{1.2}\sffamily \bfseries{\fontsize{14}{17}\selectfont\MakeUppercase\@title}\par} \vspace{10mm}
-{\normalfont \bfseries{\@vrstaRada}}
+{\normalfont \bfseries{\MakeUppercase\@vrstaRada}}
 \end{center}
 
 \vskip 20mm
 \begin{flushleft}
 \hspace{90mm}
-{\bfseries{Mentor:}}\\[15pt]
-\hspace{90mm}{\normalfont {\ \@titulaProfesora}}
+{\bfseries{\mentorr{\@spolMentora}}}\\[15pt]
+\hspace{90mm}{\normalfont {\ \ \ \@titulaProfesora}}
 {\normalfont {\@mentor}}
 \end{flushleft}
 
@@ -257,10 +281,10 @@ unicode
 {\begin{center}\bfseries{Izjava o izvornosti}\end{center}}
 
 
-\noindent Izjavljujem da je moj završni/diplomski rad izvorni rezultat mojeg rada te da se u izradi istoga nisam koristio drugim izvorima osim onima koji su u njemu navedeni. Za izradu rada su korištene etički prikladne i prihvatljive metode i tehnike rada.
+\noindent Izjavljujem da je moj \@vrstaRada\ izvorni rezultat mojeg rada te da se u izradi istoga nisam koristio drugim izvorima osim onima koji su u njemu navedeni. Za izradu rada su korištene etički prikladne i prihvatljive metode i tehnike rada.
 
 \begin{flushright}
-\textit{Autor/ica potvrdio/la prihvaćanjem odredbi u sustavu FOI-radovi}
+\textit{\autor{\@spolStudenta}\unskip\potvrdio{\@spolStudenta}\unskip\ prihvaćanjem odredbi u sustavu FOI-radovi}
 \end{flushright}
 
 \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
