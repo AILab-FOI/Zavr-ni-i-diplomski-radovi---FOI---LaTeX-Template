@@ -10,6 +10,7 @@
 \RequirePackage[croatian]{babel}
 \RequirePackage{csquotes}
 \RequirePackage[T1]{fontenc}
+\RequirePackage{anyfontsize}
 \RequirePackage{graphicx} % Uključeno jer je često korišteno
 \RequirePackage{amssymb} % Uključeno jer je često korišteno
 \RequirePackage{amsmath} % Uključeno jer je često korišteno
@@ -184,6 +185,32 @@ unicode
 
 % Naslovne stranice
 \renewcommand\maketitle{%
+%
+\thispagestyle{empty}
+\begin{center}
+  {\large \fontsize{14}{17}\selectfont\bfseries{SVEU\v CILI\v STE U ZAGREBU}} \\[8pt]
+  {\large \fontsize{14}{17}\selectfont\bfseries{FAKULTET ORGANIZACIJE I INFORMATIKE}} \\[8pt]
+  {\large \fontsize{14}{17}\selectfont\bfseries{VARA\v ZDIN}}
+\end{center}
+
+\vskip 20mm
+\begin{flushleft}
+\Large \bfseries{\@author}
+\end{flushleft}
+
+\vskip 60mm
+\begin{center}
+{ \linespread{2.5}\sffamily\bfseries{\fontsize{22}{27}\selectfont\MakeUppercase\@title}\par}\ \\[10mm]
+{\normalfont \large \bfseries{ZAVR\v SNI RAD}}
+\end{center}
+
+\vfill
+\begin{center}
+{\large \bfseries{Vara\v zdin}, \bfseries{\@godina}}
+\end{center}
+
+\newpage
+
 \thispagestyle{empty}
 \begin{center}
   {\bfseries{SVEU\v CILI\v STE U ZAGREBU}} \\[12pt]
@@ -200,7 +227,7 @@ unicode
 
 \vskip 40mm
 \begin{center}
-{\setstretch{1.2}\sffamily \bfseries{\MakeUppercase\@title}\par} \vspace{10mm}
+{\setstretch{1.2}\sffamily \bfseries{\fontsize{14}{17}\selectfont\MakeUppercase\@title}\par} \vspace{10mm}
 {\normalfont \bfseries{\@vrstaRada}}
 \end{center}
 
