@@ -128,9 +128,9 @@ unicode
 
 \newcommand{\mentorr}[1]
 {
-  \ifthenelse{\equal{#1}{M}}{\!\!\!\!Mentor}{}
-  \ifthenelse{\equal{#1}{Z}}{\!\!\!\!\!Mentorica}{}
-  \ifthenelse{\equal{#1}{O}}{\!\!\!\!\!\!\!Mentor/Mentorica}{}
+  \ifthenelse{\equal{#1}{M}}{\!\!\!\!Mentor\!\!\!\!\!}{}
+  \ifthenelse{\equal{#1}{Z}}{\!\!\!\!\!Mentorica\!\!\!}{}
+  \ifthenelse{\equal{#1}{O}}{\!\!\!\!\!\!\!Mentor/Mentorica\!\!}{}
 }
 
 \newcommand{\potvrdio}[1]
@@ -261,7 +261,7 @@ unicode
 \vskip 20mm
 \begin{flushleft}
 \hspace{90mm}
-{\bfseries{\mentorr{\@spolMentora}}\!:}\\[15pt]
+{\bfseries{\mentorr{\@spolMentora}}:}\\[15pt]
 \hspace{90mm}{\normalfont {\@titulaProfesora}}
 {\normalfont {\@mentor}}
 \end{flushleft}
