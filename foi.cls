@@ -233,7 +233,7 @@ unicode
 
 \vfill
 \begin{center}
-{\large \bfseries{Vara\v zdin}, \bfseries{\@godina}}
+{\large \bfseries{Vara\v zdin}, \bfseries{\@godina}.}
 \end{center}
 
 \newpage
@@ -261,7 +261,7 @@ unicode
 \vskip 20mm
 \begin{flushleft}
 \hspace{90mm}
-{\bfseries{\mentorr{\@spolMentora}}}\\[15pt]
+{\bfseries{\mentorr{\@spolMentora}}\!:}\\[15pt]
 \hspace{90mm}{\normalfont {\@titulaProfesora}}
 {\normalfont {\@mentor}}
 \end{flushleft}
