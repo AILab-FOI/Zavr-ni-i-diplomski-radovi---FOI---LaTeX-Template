@@ -15,7 +15,6 @@
 \RequirePackage{amssymb} % Uključeno jer je često korišteno
 \RequirePackage{amsmath} % Uključeno jer je često korišteno
 \RequirePackage{caption}
-\RequirePackage{mfirstuc}
 \RequirePackage{ifthen}
 \RequirePackage{url} % Potrebno radi natbiba
 \RequirePackage{enumitem} % Potrebno radi izmjene itemize okoline
@@ -118,23 +117,27 @@ unicode
 
 \def\musko{M}
 \def\zensko{Z}
+\def\odaberi{O}
 
 \newcommand{\autor}[1]
 {
-  \ifthenelse{\equal{#1}{M}}{Autor}{}
-  \ifthenelse{\equal{#1}{Z}}{Autorica}{}
+  \ifthenelse{\equal{#1}{M}}{Autor\!\!\!\!\!\!}{}
+  \ifthenelse{\equal{#1}{Z}}{Autorica\!\!\!\!\!\!}{}
+  \ifthenelse{\equal{#1}{O}}{Autor/Autorica\!\!\!\!\!\!}{}
 }
 
 \newcommand{\mentorr}[1]
 {
-  \ifthenelse{\equal{#1}{M}}{Mentor}{}
-  \ifthenelse{\equal{#1}{Z}}{Mentorica}{}
+  \ifthenelse{\equal{#1}{M}}{\!\!\!\!Mentor}{}
+  \ifthenelse{\equal{#1}{Z}}{\!\!\!\!\!Mentorica}{}
+  \ifthenelse{\equal{#1}{O}}{\!\!\!\!\!\!\!Mentor/Mentorica}{}
 }
 
 \newcommand{\potvrdio}[1]
 {
-  \ifthenelse{\equal{#1}{M}}{potvrdio}{}
-  \ifthenelse{\equal{#1}{Z}}{potvrdila}{}
+  \ifthenelse{\equal{#1}{M}}{potvrdio\!\!\!\!\!}{}
+  \ifthenelse{\equal{#1}{Z}}{potvrdila\!\!\!}{}
+  \ifthenelse{\equal{#1}{O}}{potvrdio/potvrdila\!}{}
 }
 
 % Podešavanje poglavlja tako da se ne ispisuje "Poglavlje <broj>"
@@ -225,7 +228,7 @@ unicode
 \vskip 60mm
 \begin{center}
 { \linespread{2.5}\sffamily\bfseries{\fontsize{22}{27}\selectfont\MakeUppercase\@title}\par}\ \\[10mm]
-{\normalfont \large \bfseries{\MakeUppercase\@vrstaRada}}
+{\normalfont \large \bfseries{\fontsize{14}{17}\selectfont\MakeUppercase\@vrstaRada}}
 \end{center}
 
 \vfill
@@ -259,7 +262,7 @@ unicode
 \begin{flushleft}
 \hspace{90mm}
 {\bfseries{\mentorr{\@spolMentora}}}\\[15pt]
-\hspace{90mm}{\normalfont {\ \ \ \@titulaProfesora}}
+\hspace{90mm}{\normalfont {\@titulaProfesora}}
 {\normalfont {\@mentor}}
 \end{flushleft}
 
@@ -284,7 +287,7 @@ unicode
 \noindent Izjavljujem da je moj \@vrstaRada\ izvorni rezultat mojeg rada te da se u izradi istoga nisam koristio drugim izvorima osim onima koji su u njemu navedeni. Za izradu rada su korištene etički prikladne i prihvatljive metode i tehnike rada.
 
 \begin{flushright}
-\textit{\autor{\@spolStudenta}\unskip\potvrdio{\@spolStudenta}\unskip\ prihvaćanjem odredbi u sustavu FOI-radovi}
+\textit{\autor{\@spolStudenta} \potvrdio{\@spolStudenta} prihvaćanjem odredbi u sustavu FOI-radovi}\par
 \end{flushright}
 
 \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
